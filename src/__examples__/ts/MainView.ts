@@ -64,16 +64,14 @@ export class MainView extends PixiGrid {
 class ChildView extends PixiGrid {
   constructor() {
     super();
-    this.build(this.getGridConfig());
+    super.build(this.getGridConfig());
   }
 
   public getGridConfig() {
     return getChildViewGridConfig();
   }
 
-  public build(config: ICellConfig): void {
-    super.build(config);
-
+  public postBuild(): void {
     const owl = PIXI.Sprite.from('owl');
     owl.anchor.set(0.5);
 

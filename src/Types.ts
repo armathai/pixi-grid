@@ -3,6 +3,7 @@ import { ICellConfig } from '@armathai/grid-core';
 export type IPixiChild = PIXI.Container & {
   destroy(...args: any[]): void;
   resize?(width: number, height: number): void;
+  postBuild?(): void;
 };
 
 export type IPixiGrid = IPixiChild & {

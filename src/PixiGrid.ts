@@ -60,7 +60,9 @@ export abstract class PixiGrid extends PIXI.Container implements IPixiGrid {
     this._patchChildDestroy(child, cellName);
     this._rebuildContent(cellName, child);
 
-    // this._debug.bringToTop();
+    if (child.postBuild !== undefined) {
+      child.postBuild();
+    }
 
     return this;
   }
