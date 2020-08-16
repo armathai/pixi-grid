@@ -2,17 +2,15 @@ import { align, Cell, CellScale, fit, ICellConfig, Rect } from '@armathai/grid-c
 import { Debug } from './Debugger';
 import { IContent, IPixiChild, IPixiGrid } from './Types';
 
-export abstract class PixiGrid extends PIXI.Container implements IPixiGrid {
-  public abstract getGridConfig(): ICellConfig;
-
-  protected grid!: Cell<IContent>;
-
+export class PixiGrid extends PIXI.Container implements IPixiGrid {
+  public grid!: Cell<IContent>;
   private _debug!: Debug;
 
-  constructor() {
+  constructor(config: ICellConfig) {
     super();
 
     this._debug = new Debug(this);
+    this._internalBuild(config);
   }
 
   protected getCellByName(name: string) {
@@ -37,15 +35,6 @@ export abstract class PixiGrid extends PIXI.Container implements IPixiGrid {
 
     // sets old cells contents in new grid cells
     cells.forEach(cell => cell.contents.forEach(content => this._rebuildContent(cell.name, content)));
-  }
-
-  /**
-   * @description Creates Grid object based on input configuration object
-   * @param config Input configuration object.
-   * @returns {void}
-   */
-  protected build(config: ICellConfig): void {
-    this._internalBuild(config);
   }
 
   /**
@@ -93,6 +82,11 @@ export abstract class PixiGrid extends PIXI.Container implements IPixiGrid {
     };
   }
 
+  /**
+   * @description Creates Grid object based on input configuration object
+   * @param config Input configuration object.
+   * @returns {void}
+   */
   private _internalBuild(config: ICellConfig): void {
     this.grid = new Cell(config);
 
@@ -131,11 +125,9 @@ export abstract class PixiGrid extends PIXI.Container implements IPixiGrid {
     child instanceof PixiGrid ? this._adjustGridChild(child, cell) : this._adjustChild(child, cell);
   }
 
-  private _adjustGridChild(child: IPixiGrid, cell: Cell<IContent>): void {
-    const gridConfig = child.getGridConfig();
-    gridConfig.bounds = cell.area;
-
-    child.rebuild(gridConfig);
+  private _adjustGridChild(child: PixiGrid, cell: Cell<IContent>): void {
+    child.grid.config.bounds = cell.area;
+    child.rebuild();
   }
 
   private _adjustChild(child: IPixiChild, cell: Cell<IContent>): void {

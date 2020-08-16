@@ -1,4 +1,3 @@
-import { ICellConfig } from '@armathai/grid-core';
 import { PixiGrid } from '../../PixiGrid';
 import { getChildViewGridConfig, getMainViewGridConfig } from './grid-configs';
 
@@ -7,18 +6,11 @@ export class MainView extends PixiGrid {
   private _childGrid!: PixiGrid;
 
   constructor() {
-    super();
-
-    this.build(this.getGridConfig());
+    super(getMainViewGridConfig());
+    this._build();
   }
 
-  public getGridConfig() {
-    return getMainViewGridConfig();
-  }
-
-  public build(config: ICellConfig): void {
-    super.build(config);
-
+  private _build(): void {
     this._buildGroup();
     this._buildChildGrid();
     this._setResizeListener();
@@ -54,7 +46,7 @@ export class MainView extends PixiGrid {
   private _setResizeListener(): void {
     window.addEventListener('resize', () => {
       setTimeout(() => {
-        this.rebuild(this.getGridConfig());
+        this.rebuild(getMainViewGridConfig());
       }, 200);
     });
   }
@@ -63,12 +55,7 @@ export class MainView extends PixiGrid {
 // tslint:disable-next-line: max-classes-per-file
 class ChildView extends PixiGrid {
   constructor() {
-    super();
-    super.build(this.getGridConfig());
-  }
-
-  public getGridConfig() {
-    return getChildViewGridConfig();
+    super(getChildViewGridConfig());
   }
 
   public postBuild(): void {

@@ -7,7 +7,6 @@ export type IPixiChild = PIXI.Container & {
 };
 
 export type IPixiGrid = IPixiChild & {
-  getGridConfig(): ICellConfig;
   rebuild(config?: ICellConfig): void;
 };
 
