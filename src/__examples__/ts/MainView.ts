@@ -6,8 +6,12 @@ export class MainView extends PixiGrid {
   private _childGrid!: PixiGrid;
 
   constructor() {
-    super(getMainViewGridConfig());
+    super();
     this._build();
+  }
+
+  public getGridConfig() {
+    return getMainViewGridConfig();
   }
 
   private _build(): void {
@@ -55,7 +59,11 @@ export class MainView extends PixiGrid {
 // tslint:disable-next-line: max-classes-per-file
 class ChildView extends PixiGrid {
   constructor() {
-    super(getChildViewGridConfig());
+    super();
+  }
+
+  public getGridConfig() {
+    return getChildViewGridConfig();
   }
 
   public postBuild(): void {

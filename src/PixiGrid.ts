@@ -2,15 +2,16 @@ import { align, Cell, CellScale, fit, ICellConfig, Rect } from '@armathai/grid-c
 import { Debug } from './Debugger';
 import { IContent, IPixiChild, IPixiGrid } from './Types';
 
-export class PixiGrid extends PIXI.Container implements IPixiGrid {
+export abstract class PixiGrid extends PIXI.Container implements IPixiGrid {
+  public abstract getGridConfig(): ICellConfig;
   public grid!: Cell<IContent>;
   private _debug!: Debug;
 
-  constructor(config: ICellConfig) {
+  constructor() {
     super();
 
     this._debug = new Debug(this);
-    this._internalBuild(config);
+    this._internalBuild(this.getGridConfig());
   }
 
   protected getCellByName(name: string) {
@@ -126,8 +127,10 @@ export class PixiGrid extends PIXI.Container implements IPixiGrid {
   }
 
   private _adjustGridChild(child: PixiGrid, cell: Cell<IContent>): void {
-    child.grid.config.bounds = cell.area;
-    child.rebuild();
+    const gridConfig = child.getGridConfig();
+    gridConfig.bounds = cell.area;
+
+    child.rebuild(gridConfig);
   }
 
   private _adjustChild(child: IPixiChild, cell: Cell<IContent>): void {
