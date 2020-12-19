@@ -1,47 +1,50 @@
 {
-  "name": "@armathai/pixi-grid",
-  "version": "2.0.1",
-  "description": "Pixi Grid System",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "scripts": {
-    "test": "jest --config jestconfig.json",
-    "start": "npx parcel src/__examples__/index.html",
-    "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json",
-    "prepare": "npm run build --scripts-prepend-node-path",
-    "prepublishOnly": "npm test && npm run lint"
-  },
-  "repository": {
-    "url": "git@github.com:armathai/pixi-grid.git"
-  },
-  "keywords": [
-    "pixijs5",
-    "pixijs",
-    "pixi.js",
-    "pixi",
-    "grid"
-  ],
-  "author": "Armathai LLC",
-  "license": "MIT",
-  "homepage": "https://github.com/armathai/pixi-grid#readme",
-  "devDependencies": {
-    "@types/jest": "^25.2.1",
-    "@types/node": "^13.13.2",
-    "jest": "^25.4.0",
-    "parcel-bundler": "^1.12.4",
-    "pixi.js": "^5.2.3",
-    "prettier": "^1.19.1",
-    "ts-jest": "^25.4.0",
-    "tslint": "^6.0.0",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.7.4"
-  },
-  "files": [
-    "lib/**/*"
-  ],
-  "dependencies": {
-    "@armathai/grid-core": "^1.0.1"
-  }
+    "name": "@armathai/pixi-grid",
+    "version": "2.0.0",
+    "description": "Pixi Grid System",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "scripts": {
+        "test": "jest --config jestconfig.json",
+        "start": "npx parcel src/__examples__/index.html",
+        "build": "tsc",
+        "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+        "lint": "tsc && eslint '*/**/*.{js,ts,ts}'  --fix",
+        "prepare": "npm run build --scripts-prepend-node-path",
+        "prepublishOnly": "npm test && npm run lint"
+    },
+    "repository": {
+        "url": "git@github.com:armathai/pixi-grid.git"
+    },
+    "keywords": [
+        "pixijs5",
+        "pixijs",
+        "pixi.js",
+        "pixi",
+        "grid"
+    ],
+    "author": "Armath LLC",
+    "license": "MIT",
+    "homepage": "https://github.com/armathai/pixi-grid#readme",
+    "devDependencies": {
+        "@types/jest": "^25.2.1",
+        "@types/node": "^13.13.2",
+        "jest": "^25.4.0",
+        "parcel-bundler": "^1.12.4",
+        "pixi.js": "^5.2.3",
+        "prettier": "^1.19.1",
+        "ts-jest": "^25.4.0",
+        "typescript": "^3.7.4",
+        "@typescript-eslint/eslint-plugin": "^4.10.0",
+        "@typescript-eslint/parser": "^4.10.0",
+        "eslint": "^7.8.1",
+        "eslint-config-prettier": "^7.1.0",
+        "eslint-plugin-prettier": "^3.1.3"
+    },
+    "files": [
+        "lib/**/*"
+    ],
+    "dependencies": {
+        "@armathai/grid-core": "git+https://github.com/armathai/grid-core.git"
+    }
 }

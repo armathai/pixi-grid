@@ -1,0 +1,10 @@
+node_modules/*
+configs/*
+scripts/*
+bin/*
+dist/*
+typings/*
+src/__test__/*
+webpack/*
+libs/*
+lib/*
