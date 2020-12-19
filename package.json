@@ -45,6 +45,6 @@
         "lib/**/*"
     ],
     "dependencies": {
-        "@armathai/grid-core": "git+https://github.com/armathai/grid-core.git"
+        "@armathai/grid-core": "^2.0.0"
     }
 }

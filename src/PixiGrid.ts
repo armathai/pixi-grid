@@ -142,9 +142,9 @@ export abstract class PixiGrid extends PIXI.Container implements IPixiGrid {
 
     private _scaleContent(child: IPixiChild, cell: Cell<IContent>, childBounds: Rect): void {
         switch (cell.scale) {
-            case CellScale.None:
+            case CellScale.none:
                 break;
-            case CellScale.Custom:
+            case CellScale.custom:
                 if (!child.resize) {
                     throw new Error('resize() function does not implemented');
                 }
@@ -184,7 +184,7 @@ export abstract class PixiGrid extends PIXI.Container implements IPixiGrid {
     private _resetContent(child: IPixiChild, cell: Cell<IContent>): void {
         child.position.set(0, 0);
 
-        if (cell.scale !== CellScale.None) {
+        if (cell.scale !== CellScale.none) {
             child.scale.set(1, 1);
         }
 
