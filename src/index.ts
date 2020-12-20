@@ -1,2 +1,2 @@
-export { Cell, CellAlign, CellScale, ICellConfig } from '@armathai/grid-core';
+export { Cell, CellAlign, CellScale } from '@armathai/grid-core';
 export { PixiGrid } from './PixiGrid';

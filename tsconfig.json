@@ -1,15 +1,10 @@
 {
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "outDir": "./lib/",
-    "noImplicitAny": true,
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "module": "es6",
-    "target": "es5",
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
-  },
-  "exclude": ["node_modules", "**/__tests__/*", "**/lib/*", "**/dist/*"]
+    "compilerOptions": {
+        "target": "es5",
+        "outDir": "dist/types",
+        "preserveConstEnums": true,
+        "declaration": true,
+        "emitDeclarationOnly": true
+    },
+    "files": ["src/index-types.ts", "node_modules/pixi.js/pixi.js.d.ts"]
 }
