@@ -52,7 +52,7 @@ export default {
         },
         {
             file: pkg.browser,
-            format: 'iife',
+            format: 'umd',
             name,
             // https://rollupjs.org/guide/en#output-globals-g-globals
             globals: {},
