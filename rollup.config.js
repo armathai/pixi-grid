@@ -5,7 +5,7 @@ import pkg from './package.json';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
-const name = 'pixi-grid';
+const name = 'pixiGrid';
 
 export default {
     input: './src/index.ts',
@@ -54,7 +54,6 @@ export default {
             file: pkg.browser,
             format: 'iife',
             name,
-            extend: true,
             // https://rollupjs.org/guide/en#output-globals-g-globals
             globals: {},
         },
