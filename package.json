@@ -1,6 +1,6 @@
 {
     "name": "@armathai/pixi-grid",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "Pixi Grid System",
     "main": "dist/pixi-grid.cjs.js",
     "module": "dist/pixi-grid.esm.js",
@@ -52,7 +52,7 @@
         "dist/**/*"
     ],
     "dependencies": {
-        "@armathai/grid-core": "^2.0.1",
+        "@armathai/grid-core": "^2.0.2",
         "core-js": "^3.8.1"
     }
 }
