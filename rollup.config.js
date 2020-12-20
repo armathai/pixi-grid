@@ -1,6 +1,7 @@
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
+import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
@@ -26,19 +27,21 @@ export default {
             extensions,
             include: ['src/**/*'],
             presets: [
-                // [
-                //     '@babel/preset-env',
-                //     {
-                //         useBuiltIns: 'usage',
-                //         corejs: { version: 3, proposals: true },
-                //         bugfixes: true,
-                //         debug: true,
-                //     },
-                // ],
+                [
+                    '@babel/preset-env',
+                    {
+                        useBuiltIns: 'usage',
+                        corejs: { version: 3, proposals: true },
+                        bugfixes: true,
+                        debug: true,
+                    },
+                ],
                 '@babel/preset-typescript',
             ],
             plugins: ['@babel/plugin-proposal-class-properties'],
         }),
+
+        terser(),
     ],
 
     output: [
