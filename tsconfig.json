@@ -4,7 +4,9 @@
         "outDir": "dist/types",
         "preserveConstEnums": true,
         "declaration": true,
-        "emitDeclarationOnly": true
+        "emitDeclarationOnly": true,
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true
     },
-    "files": ["src/index-types.ts", "node_modules/pixi.js/pixi.js.d.ts"]
+    "files": ["src/index-types.ts"]
 }

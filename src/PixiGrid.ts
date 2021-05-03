@@ -1,8 +1,9 @@
 import { align, Cell, CellScale, fit, ICellConfig, Rect } from '@armathai/grid-core';
+import { Container } from 'pixi.js';
 import { Debug } from './Debugger';
 import { IContent, IPixiChild, IPixiGrid } from './Types';
 
-export abstract class PixiGrid extends PIXI.Container implements IPixiGrid {
+export abstract class PixiGrid extends Container implements IPixiGrid {
     public grid!: Cell<IContent>;
 
     private _debug!: Debug;
@@ -27,7 +28,7 @@ export abstract class PixiGrid extends PIXI.Container implements IPixiGrid {
         this._internalBuild(config || this.grid.config);
 
         // sets old cells contents in new grid cells
-        cells.forEach(cell => cell.contents.forEach(content => this._rebuildContent(cell.name, content)));
+        cells.forEach((cell) => cell.contents.forEach((content) => this._rebuildContent(cell.name, content)));
     }
 
     protected getCellByName(name: string): Cell<IContent> {

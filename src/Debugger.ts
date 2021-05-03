@@ -1,4 +1,5 @@
 import { Cell, IDebug } from '@armathai/grid-core';
+import { Graphics } from 'pixi.js';
 import { IContent, IPixiGrid } from './Types';
 
 export class Debug {
@@ -38,7 +39,7 @@ export class Debug {
             this._debugger.strokeRect(bx, by, bw, bh, lineWidth, color);
         }
 
-        cell.cells.forEach(el => this.draw(el, lineWidth * 0.7, debug));
+        cell.cells.forEach((el) => this.draw(el, lineWidth * 0.7, debug));
     }
 
     public clear(): void {
@@ -80,8 +81,7 @@ export class Debug {
     }
 }
 
-// tslint:disable-next-line: max-classes-per-file
-export class Debugger extends PIXI.Graphics {
+export class Debugger extends Graphics {
     public static readonly defaultColor: number = 0xffffff;
 
     public strokeRect(
