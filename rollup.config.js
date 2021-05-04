@@ -1,7 +1,6 @@
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
-import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
@@ -24,12 +23,20 @@ export default {
         babel({
             extensions,
             include: ['src/**/*'],
-            presets: ['@babel/preset-typescript'],
+            presets: [
+                [
+                    '@babel/preset-env',
+                    {
+                        targets: {
+                            esmodules: true,
+                        },
+                    },
+                ],
+                '@babel/preset-typescript',
+            ],
             plugins: ['@babel/plugin-proposal-class-properties'],
             babelHelpers: 'inline',
         }),
-
-        terser(),
     ],
 
     output: [
