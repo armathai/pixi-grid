@@ -1,6 +1,6 @@
 {
     "name": "@armathai/pixi-grid",
-    "version": "4.0.1",
+    "version": "4.1.0",
     "description": "Pixi Grid System",
     "main": "dist/pixi-grid.cjs.js",
     "module": "dist/pixi-grid.esm.js",
