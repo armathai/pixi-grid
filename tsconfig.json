@@ -1,12 +1,13 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "target": "es6",
         "outDir": "dist/types",
         "preserveConstEnums": true,
         "declaration": true,
         "emitDeclarationOnly": true,
-        "allowSyntheticDefaultImports": true,
-        "skipLibCheck": true
+        "rootDir": "src",
+        "skipLibCheck": true,
+        "moduleResolution": "Node"
     },
     "files": ["src/index-types.ts"]
 }

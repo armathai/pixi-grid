@@ -1,6 +1,6 @@
-import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
 import pkg from './package.json';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
@@ -10,7 +10,7 @@ export default {
 
     // Specify here external modules which you don't want to include in your bundle (for instance: 'lodash', 'moment' etc.)
     // https://rollupjs.org/guide/en#external-e-external
-    external: ['pixi.js', /@babel\/runtime/],
+    external: ['pixi.js'],
 
     plugins: [
         // Allows node_modules resolution
@@ -20,23 +20,7 @@ export default {
         commonjs(),
 
         // Compile TypeScript/JavaScript files
-        babel({
-            extensions,
-            include: ['src/**/*'],
-            presets: [
-                [
-                    '@babel/preset-env',
-                    {
-                        targets: {
-                            esmodules: true,
-                        },
-                    },
-                ],
-                '@babel/preset-typescript',
-            ],
-            plugins: ['@babel/plugin-proposal-class-properties'],
-            babelHelpers: 'inline',
-        }),
+        typescript(),
     ],
 
     output: [
